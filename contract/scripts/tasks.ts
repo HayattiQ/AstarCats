@@ -1,5 +1,5 @@
 import { task, types } from "hardhat/config";
-import { ethers } from "ethers";
+import { BigNumber, ethers } from "ethers";
 import { getContract, getEnvVariable, getProvider } from "./helpers";
 import fs from "fs";
 import readline from "readline";
@@ -72,6 +72,15 @@ task("unpause", "Un Pause Sale")
     console.log(`Sale Pause status changed. hash: ${transactionResponse.hash}`);
   });
 
+  task("ownerOf", "Show Token Owner Of")
+  .addParam("id", "token ID")
+  .setAction(async function (taskArguments, hre) {
+    const contract = await getContract(getEnvVariable("CONTRACT_NAME"), hre, getProvider(hre));
+    console.log(`call contract.address ${contract.address}.`);
+    const transactionResponse = await contract["ownerOf"](taskArguments.id);
+    console.log(`owner address: ${transactionResponse}`);
+  });
+
 
 task("totalSupply", "Show Total Supply")
   .setAction(async function (taskArguments, hre) {
@@ -83,7 +92,7 @@ task("totalSupply", "Show Total Supply")
 
 task("snapshot", "BulkSend Account NFT")
   .addOptionalParam("filename", "White txt file name", "./scripts/snapshot.csv", types.string)
-  .addOptionalParam("start", "Start ID", "1", types.int)
+  .addOptionalParam("start", "Start ID", 1, types.int)
   .setAction(async function (taskArguments, hre) {
     const contract = await getContract(getEnvVariable("CONTRACT_NAME"), hre, getProvider(hre));
     const totalSupply: number = Number(await contract["totalSupply"]());
