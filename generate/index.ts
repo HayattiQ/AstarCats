@@ -95,7 +95,7 @@ async function compositeImage(trait: TraitData, zeroPaddingLength: number) {
   for (const atr of attributes) {
     if (atr.value !== "None") {
       const trait_path = traitConfig.assset_dir + atr.key + "/" + atr.value + ".png";
-      if (!fs.existsSync(trait_path)) console.log(trait_path + " is not exsit");
+      if (!fs.existsSync(trait_path)) throw new Error(trait_path + " is not exsit");
       rest_trait.push({ input: trait_path });
     }
   }
