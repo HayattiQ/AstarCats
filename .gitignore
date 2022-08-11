@@ -95,6 +95,5 @@ typings/
 .env.test
 
 generate/output/
-generate/json/
 generate/thumbnail/
 generate/assets/

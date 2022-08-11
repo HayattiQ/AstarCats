@@ -1,0 +1,41 @@
+{
+  "name": "AstarCats#2130",
+  "description": "AstarCats is the first cats NFT collection on Astar Network.\nAstarCats is not just another PFP project, but it comes with many utilities and holder benefits planned ahead!\nOur ultimate mission is to support promising projects on Astar Network by providing our creative resources.",
+  "external_url": "https://astarcats.xyz/",
+  "image": "ipfs://QmQptLUg6Vakr2p3BCccmm2cs7M9hhEGvi4AoZMvMv3DJt/2130.png",
+  "background_color": "FFFFFF",
+  "attributes": [
+    {
+      "trait_type": "Background",
+      "value": "Yellow"
+    },
+    {
+      "trait_type": "Body",
+      "value": "Gold"
+    },
+    {
+      "trait_type": "Clothes",
+      "value": "Dot T-shirt Orange"
+    },
+    {
+      "trait_type": "Face",
+      "value": "Gold"
+    },
+    {
+      "trait_type": "Special",
+      "value": "Duck"
+    },
+    {
+      "trait_type": "Mouth",
+      "value": "Squiggle"
+    },
+    {
+      "trait_type": "Hat",
+      "value": "Antenna"
+    },
+    {
+      "trait_type": "Eyes",
+      "value": "Tired"
+    }
+  ]
+}

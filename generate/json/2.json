@@ -1,0 +1,41 @@
+{
+  "name": "AstarCats#Degen",
+  "description": "AstarCats is the first cats NFT collection on Astar Network.\nAstarCats is not just another PFP project, but it comes with many utilities and holder benefits planned ahead!\nOur ultimate mission is to support promising projects on Astar Network by providing our creative resources.",
+  "external_url": "https://astarcats.xyz/",
+  "image": "ipfs://QmYF6Rcin5gAbT9W5usQyUKUjgEgjXSCPth5142resAxwm",
+  "background_color": "FFFFFF",
+  "attributes": [
+    {
+      "trait_type": "Background",
+      "value": "Degen"
+    },
+    {
+      "trait_type": "Body",
+      "value": "Degen"
+    },
+    {
+      "trait_type": "Clothes",
+      "value": "Degen"
+    },
+    {
+      "trait_type": "Face",
+      "value": "Degen"
+    },
+    {
+      "trait_type": "Special",
+      "value": "Degen"
+    },
+    {
+      "trait_type": "Mouth",
+      "value": "Degen"
+    },
+    {
+      "trait_type": "Hat",
+      "value": "Degen"
+    },
+    {
+      "trait_type": "Eyes",
+      "value": "Degen"
+    }
+  ]
+}

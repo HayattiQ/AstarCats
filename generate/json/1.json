@@ -1,0 +1,41 @@
+{
+  "name": "AstarCats#Sota",
+  "description": "AstarCats is the first cats NFT collection on Astar Network.\nAstarCats is not just another PFP project, but it comes with many utilities and holder benefits planned ahead!\nOur ultimate mission is to support promising projects on Astar Network by providing our creative resources.",
+  "external_url": "https://astarcats.xyz/",
+  "image": "ipfs://QmYqr4VYpNokipJnqGQ8CThqR9Mfw938RAwTwAFkkYEEN3",
+  "background_color": "FFFFFF",
+  "attributes": [
+    {
+      "trait_type": "Background",
+      "value": "Sota"
+    },
+    {
+      "trait_type": "Body",
+      "value": "Sota"
+    },
+    {
+      "trait_type": "Clothes",
+      "value": "Sota"
+    },
+    {
+      "trait_type": "Face",
+      "value": "Sota"
+    },
+    {
+      "trait_type": "Special",
+      "value": "Sota"
+    },
+    {
+      "trait_type": "Mouth",
+      "value": "Sota"
+    },
+    {
+      "trait_type": "Hat",
+      "value": "Sota"
+    },
+    {
+      "trait_type": "Eyes",
+      "value": "Sota"
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "name": "AstarCats#FlowerLolita",
+  "description": "AstarCats is the first cats NFT collection on Astar Network.\nAstarCats is not just another PFP project, but it comes with many utilities and holder benefits planned ahead!\nOur ultimate mission is to support promising projects on Astar Network by providing our creative resources.",
+  "external_url": "https://astarcats.xyz/",
+  "image": "ipfs://QmPqH61oRqzsHcRMaGELwAEEsne7aeuzHpmefDFhisf6Kq/Flowerlolitacat.png",
+  "background_color": "FFFFFF",
+  "attributes": [
+    {
+      "trait_type": "Background",
+      "value": "FlowerLolita"
+    },
+    {
+      "trait_type": "Body",
+      "value": "FlowerLolita"
+    },
+    {
+      "trait_type": "Clothes",
+      "value": "FlowerLolita"
+    },
+    {
+      "trait_type": "Face",
+      "value": "FlowerLolita"
+    },
+    {
+      "trait_type": "Special",
+      "value": "FlowerLolita"
+    },
+    {
+      "trait_type": "Mouth",
+      "value": "FlowerLolita"
+    },
+    {
+      "trait_type": "Hat",
+      "value": "FlowerLolita"
+    },
+    {
+      "trait_type": "Eyes",
+      "value": "FlowerLolita"
+    }
+  ]
+}
