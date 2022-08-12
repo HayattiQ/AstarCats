@@ -11,24 +11,19 @@ export function getProvider(hre: HardhatRuntimeEnvironment) {
 // Helper method for fetching a contract instance at a given address
 export function getContract(contractName: string, hre: HardhatRuntimeEnvironment, provider: ethers.providers.Provider) {
   const account = getAccount(provider, hre.network.name);
-  if (hre.network.name == "localhost") {
-    return getContractAt(hre, contractName, getEnvVariable("NFT_CONTRACT_ADDRESS_LOCALHOST"), account);
-  } else {
-    return getContractAt(hre, contractName, getEnvVariable("NFT_CONTRACT_ADDRESS"), account);
-  }
+
+  return getContractAt(hre, contractName, getEnvVariable("NFT_CONTRACT_ADDRESS"), account);
+
 }
 
 // Helper method for fetching a wallet account using an environment variable for the PK
 export function getAccount(provider: ethers.providers.Provider, network: string) {
-  if (network == "localhost") {
-    return new ethers.Wallet(
-      getEnvVariable("ACCOUNT_PRIVATE_KEY_LOCALHOST"), provider);
-  } else {
-    return new ethers.Wallet(
-      getEnvVariable("ACCOUNT_PRIVATE_KEY"), provider);
 
-  }
+  return new ethers.Wallet(
+    getEnvVariable("ACCOUNT_PRIVATE_KEY"), provider);
+
 }
+
 
 
 // Helper method for fetching environment variables from .env
