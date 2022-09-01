@@ -5,7 +5,7 @@ import fs from "fs";
 import readline from "readline";
 import { getContractAt } from "@nomiclabs/hardhat-ethers/internal/helpers";
 
-task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
+task("accounts", "Prints the list of accounts", async (taskArgs: any, hre: { ethers: { getSigners: () => any; }; }) => {
   const accounts = await hre.ethers.getSigners();
 
   for (const account of accounts) {
@@ -15,13 +15,13 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
 
 task("checksum", "Change address to checksum address")
   .addParam("address", "wallet address")
-  .setAction(async (taskArgs, hre) => {
+  .setAction(async (taskArgs: { address: any; }, hre: any) => {
     console.log(ethers.utils.getAddress(taskArgs.address));
   });
 
 task("pushWL", "Push WhiteList from JSON file")
   .addOptionalParam("filename", "WhiteList txt file name", "./scripts/whitelist_import.txt")
-  .setAction(async (taskArgs, hre) => {
+  .setAction(async (taskArgs: { filename: any; }, hre: any) => {
     let whitelist: string[] = [];
 
     const rl = readline.createInterface({
@@ -43,14 +43,14 @@ task("pushWL", "Push WhiteList from JSON file")
 
 task("ownerMint", "Mints from the NFT contract. (only Owner)")
   .addParam("number", "Ownermint Number")
-  .setAction(async function (taskArguments, hre) {
+  .setAction(async function (taskArguments: { number: any; }, hre: any) {
     const contract = await getContract(getEnvVariable("CONTRACT_NAME"), hre, getProvider(hre));
     const transactionResponse = await contract["ownerMint"](taskArguments.number);
     console.log(`Transaction Hash: ${transactionResponse.hash}`);
   });
 
 task("isPaused", "Check pause status")
-  .setAction(async function (taskArguments, hre) {
+  .setAction(async function (taskArguments: any, hre: any) {
 
     const contract = await getContract(getEnvVariable("CONTRACT_NAME"), hre, getProvider(hre));
     const transactionResponse = await contract["is_paused"]();
@@ -58,23 +58,23 @@ task("isPaused", "Check pause status")
   });
 
 task("pause", "Pause Sale")
-  .setAction(async function (taskArguments, hre) {
+  .setAction(async function (taskArguments: any, hre: any) {
     const contract = await getContract(getEnvVariable("CONTRACT_NAME"), hre, getProvider(hre));
     const transactionResponse = await contract["pause"](true);
     console.log(`Sale Pause status changed. hash: ${transactionResponse.hash}`);
   });
 
 task("unpause", "Un Pause Sale")
-  .setAction(async function (taskArguments, hre) {
+  .setAction(async function (taskArguments: any, hre: any) {
     const contract = await getContract(getEnvVariable("CONTRACT_NAME"), hre, getProvider(hre));
     console.log(`call contract.address ${contract.address}.`);
     const transactionResponse = await contract["pause"](false);
     console.log(`Sale Pause status changed. hash: ${transactionResponse.hash}`);
   });
 
-  task("ownerOf", "Show Token Owner Of")
+task("ownerOf", "Show Token Owner Of")
   .addParam("id", "token ID")
-  .setAction(async function (taskArguments, hre) {
+  .setAction(async function (taskArguments: { id: any; }, hre: any) {
     const contract = await getContract(getEnvVariable("CONTRACT_NAME"), hre, getProvider(hre));
     console.log(`call contract.address ${contract.address}.`);
     const transactionResponse = await contract["ownerOf"](taskArguments.id);
@@ -83,7 +83,7 @@ task("unpause", "Un Pause Sale")
 
 
 task("totalSupply", "Show Total Supply")
-  .setAction(async function (taskArguments, hre) {
+  .setAction(async function (taskArguments: any, hre: any) {
     const contract = await getContract(getEnvVariable("CONTRACT_NAME"), hre, getProvider(hre));
     console.log(`call contract.address ${contract.address}.`);
     const transactionResponse = await contract["totalSupply"]();
@@ -93,7 +93,7 @@ task("totalSupply", "Show Total Supply")
 task("snapshot", "BulkSend Account NFT")
   .addOptionalParam("filename", "White txt file name", "./scripts/snapshot.csv", types.string)
   .addOptionalParam("start", "Start ID", 1, types.int)
-  .setAction(async function (taskArguments, hre) {
+  .setAction(async function (taskArguments: { filename: any; start: any; }, hre: any) {
     const contract = await getContract(getEnvVariable("CONTRACT_NAME"), hre, getProvider(hre));
     const totalSupply: number = Number(await contract["totalSupply"]());
     console.log(`totalSupply: ${totalSupply}`);
