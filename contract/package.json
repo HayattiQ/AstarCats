@@ -9,7 +9,7 @@
     "lint:eslint": "eslint . --ext ts,tsx",
     "fix:eslint": "eslint . --ext ts,tsx --fix",
     "deploy": "hardhat run scripts/deploy.ts",
-    "flatten": "poa-solidity-flattener ./contracts/AstarCats.sol"
+    "flatten": "poa-solidity-flattener ./contracts/CatsDappsNFT.sol"
   },
   "keywords": [],
   "author": "",
@@ -22,6 +22,7 @@
     "@types/mocha": "^9.1.0",
     "@types/node": "^17.0.23",
     "chai": "^4.3.6",
+    "erc721a": "^4.2.3",
     "ethereum-waffle": "^3.4.4",
     "ethers": "^5.6.2",
     "hardhat": "^2.9.3",
