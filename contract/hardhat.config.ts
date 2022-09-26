@@ -3,12 +3,27 @@ import "@nomiclabs/hardhat-waffle";
 import type { HardhatUserConfig } from "hardhat/config";
 require('./scripts/tasks');
 import { getEnvVariable } from "./scripts/helpers";
-
+import "@nomiclabs/hardhat-etherscan";
 
 const config: HardhatUserConfig = {
 
   defaultNetwork: "localhost",
-  solidity: "0.8.9",
+  solidity: "0.8.16",
+  etherscan: {
+    apiKey: {
+      sokol: "abc"
+    },
+    customChains: [
+      {
+        network: "astar",
+        chainId: 592,
+        urls: {
+          apiURL: "https://blockscout.com/astar/api",
+          browserURL: "https://blockscout.com/astar"
+        }
+      }
+    ]
+  },
   networks: {
     localhost: {
       url: "http://localhost:8545",
