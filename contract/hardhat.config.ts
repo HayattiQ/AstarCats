@@ -8,7 +8,15 @@ import "@nomiclabs/hardhat-etherscan";
 const config: HardhatUserConfig = {
 
   defaultNetwork: "localhost",
-  solidity: "0.8.16",
+  solidity: {
+    version: '0.8.16',
+    settings: {
+      optimizer: {
+        enabled: true,
+        runs: 200,
+      },
+    },
+  },
   etherscan: {
     apiKey: {
       astar: "fd5ba062-af9a-44c3-acf4-5ca8d855b727"

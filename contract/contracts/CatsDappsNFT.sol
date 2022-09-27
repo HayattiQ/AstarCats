@@ -1,16 +1,14 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.16;
 
-import "@openzeppelin/contracts/token/ERC1155/presets/ERC1155PresetMinterPauser.sol";
+import '@openzeppelin/contracts/token/ERC1155/extensions/ERC1155URIStorage.sol';
 import "@openzeppelin/contracts/utils/Strings.sol";
+import '@openzeppelin/contracts/access/Ownable.sol';
 import "hardhat/console.sol";
 import "./IAstarBase.sol";
 
-contract CatsDappsNFT is ERC1155PresetMinterPauser {
+contract CatsDappsNFT is ERC1155URIStorage, Ownable {
     using Strings for uint256;
-
-    string _baseURI = "";
-    string public baseExtension = ".json";
     uint256 public publicMaxPerTx = 1;
     mapping(address => uint256) public claimed;
     IAstarBase public ASTARBASE = IAstarBase(0x8E2fa5A4D4e4f0581B69aF2f8F2Ef2CF205aE8F0);
@@ -19,18 +17,19 @@ contract CatsDappsNFT is ERC1155PresetMinterPauser {
     string public symbol = 'CATD';
 
 
-    constructor() ERC1155PresetMinterPauser("") {
-       grantRole(MINTER_ROLE, msg.sender);
+    constructor() ERC1155("") {
+      setBaseURI("https://arweave.net/yqjVjrr5jhFdIeae0dA3yQRwCSAcwd1uVdhbif7Wjkk/");
+      setURI(1, "dapps.json");
     }
 
-
-    function uri(uint256 _id) public view override returns (string memory) {
-        return string(abi.encodePacked(
-            _baseURI,
-            Strings.toString(_id),
-            baseExtension
-        ));
+    function setURI(uint256 tokenId, string memory _tokenURI) public onlyOwner {
+        _setURI(tokenId, _tokenURI);
     }
+
+    function setBaseURI(string memory baseURI) public onlyOwner {
+        _setBaseURI(baseURI);
+    }
+
 
     /// @notice this function verifies staker status on a contract by using caller's account
     /// @param user caller's account
@@ -63,12 +62,8 @@ contract CatsDappsNFT is ERC1155PresetMinterPauser {
         address to,
         uint256 id,
         uint256 amount
-    ) public onlyRole(MINTER_ROLE)  {
+    ) public onlyOwner  {
         _mint(to, id, amount, '');
-    }
-
-    function setBaseURI(string memory _newBaseURI) public onlyRole(MINTER_ROLE) {
-       _baseURI = _newBaseURI;
     }
 
 
