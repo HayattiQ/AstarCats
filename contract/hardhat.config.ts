@@ -11,7 +11,7 @@ const config: HardhatUserConfig = {
   solidity: "0.8.16",
   etherscan: {
     apiKey: {
-      sokol: "abc"
+      astar: "fd5ba062-af9a-44c3-acf4-5ca8d855b727"
     },
     customChains: [
       {
